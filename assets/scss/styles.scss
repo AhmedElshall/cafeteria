@@ -1,5 +1,7 @@
 //* variables
 @import "./variables/variables.scss";
+//* global
+@import "./pages/global.scss";
 //* pages
 @import "./pages/_01.login.scss";
 @import "./pages/_02.user.scss";
