@@ -22,39 +22,23 @@ function connectDb (){
 }
 
 
-function insertOrder($note,$amount,$user_id){
+function insert($name,$image,$price,$status,$categoryID){
        
     $conn= $this->connectDb();
    
     // prepare sql and bind parameters
-    $stmt = $conn->prepare("INSERT INTO orders (note,amount,user_id) 
-    VALUES (:note, :amount, :user_id)");
-    $stmt->bindParam(':note', $note);
-    $stmt->bindParam(':amount', $amount);
-    $stmt->bindParam(':user_id', $user_id);
-    $stmt->execute();
-    $statement=$conn->prepare("SELECT LAST_INSERT_ID();");
-    $statement->execute();
-    $id=$statement->fetch();
-    $conn = null;
-   return $id[0];
-}
+    $stmt = $conn->prepare("INSERT INTO products ( product_name , product_image, product_price,
+    product_status,category_id) 
+    VALUES (:name, :image, :price, :status, :categoryID)");
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':image', $image);
+    $stmt->bindParam(':price', $price);
+    $stmt->bindParam(':status', $status);
+    $stmt->bindParam(':categoryID', $categoryID);
 
-
-function insertProductOrder($order_id,$product_id,$amount_product){
-       
-    $conn= $this->connectDb();
-   
-    // prepare sql and bind parameters
-    $stmt = $conn->prepare("INSERT INTO product_order (order_id,product_id,amount_product) 
-    VALUES (:order_id, :product_id, :amount_product)");
-    $stmt->bindParam(':order_id', $order_id);
-    $stmt->bindParam(':product_id', $product_id);
-    $stmt->bindParam(':amount_product', $amount_product);
     $stmt->execute();
-   
-    $conn = null;
-   
+
+$conn = null;
 }
 
 
@@ -69,21 +53,39 @@ function selectLatestOrder ($user_id){
     $conn = null;
 }
 
-
-
-function getId($product_name)
-{
-
-    $conn=  $this->connectDb();
-    
-    $stmt= $conn->prepare("SELECT products.product_id from products WHERE products.product_name='$product_name' ;");
+function checkUserOrders(){
+    $conn=$this->connectDb();
+    $stmt=$conn->prepare("SELECT * from orders,products,users where orders.user_id=users.user_id and orders.product_id=products.product_id;");
     $stmt->execute();
-    $product_id = $stmt->fetch();
-    return $product_id;
-   
-    $conn = null;
+    $userChecks=$stmt->fetch();
+    return $userChecks;
+    $conn=null;
+
 
 }
+
+function getUserNameAndTotal($datefrom,$dateto){
+ 
+     $conn=$this->connectDb();
+    $stmt=$conn->prepare("SELECT users.user_name, SUM(products.product_price) as total from orders,products,users where orders.user_id=users.user_id and orders.product_id=products.product_id and orders.order_date_from BETWEEN '".$datefrom."'AND '".$dateto."' GROUP by products.product_price ,users.user_name;");
+    $stmt->execute();
+    $userChecks=$stmt->fetch();
+    return $userChecks;
+    $conn=null;
+
+}
+
+function getUserOrders(){
+ 
+     $conn=$this->connectDb();
+    $stmt=$conn->prepare("SELECT users.user_name, products.product_price,products.product_name,orders.order_date_from from orders,products,users where orders.user_id=users.user_id and orders.product_id=products.product_id;");
+    $stmt->execute();
+    $userChecks=$stmt->fetch();
+    return $userChecks;
+    $conn=null;
+
+}
+
 }
 ?>
 
