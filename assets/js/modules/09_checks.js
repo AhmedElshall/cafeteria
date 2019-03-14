@@ -14,9 +14,12 @@ userRow.each(function() {
 });
 
 userData.each(function() {
-  $(this).on("click", ".user .user__data", function() {
+  $(this).on("click", ".user-data", function() {
     $(this)
       .next()
       .slideToggle("700");
+    $(this)
+      .find("i")
+      .toggleClass("fa-minus-square fa-plus-square", 1000);
   });
 });

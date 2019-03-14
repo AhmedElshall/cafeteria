@@ -18,6 +18,33 @@
   display: none;
 }
 
+.each-order {
+  position: relative;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.each-order h5 {
+  margin: 10px 0;
+}
+
+.each-order span:first-of-type {
+  border: 1px solid #000;
+  border-radius: 100%;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 15px;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  background-color: #fff;
+}
+
+.user-checks .each-order {
+  margin-top: 30px;
+}
+
 .login {
   margin: 150px 0;
 }
@@ -132,29 +159,6 @@
           box-shadow: 0 0 10px 7px #00000045;
 }
 
-.all-products .each-order {
-  position: relative;
-  margin-bottom: 25px;
-}
-
-.all-products .each-order h5 {
-  text-align: center;
-  margin: 10px 0;
-}
-
-.all-products .each-order span {
-  border: 1px solid #000;
-  border-radius: 100%;
-  padding: 8px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 15px;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
-  background-color: #fff;
-}
-
 .checks .user-checks .user {
   cursor: pointer;
 }
@@ -164,5 +168,17 @@
 }
 
 .checks .user-checks .user + tr {
+  display: none;
+}
+
+.checks .user-checks .user-data {
+  cursor: pointer;
+}
+
+.checks .user-checks .user-data:hover > td > i {
+  color: #f00;
+}
+
+.checks .user-checks .user-data + tr {
   display: none;
 }

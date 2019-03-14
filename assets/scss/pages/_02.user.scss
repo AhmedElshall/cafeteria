@@ -19,7 +19,7 @@
     .item-info {
       display: flex;
       justify-content: space-between;
-      > div {
+      >div {
         align-self: center;
       }
       .item-counter {
@@ -89,25 +89,6 @@
       &:hover {
         box-shadow: 0 0 10px 7px #00000045;
       }
-    }
-  }
-  .each-order {
-    position: relative;
-    margin-bottom: 25px;
-    h5 {
-      text-align: center;
-      margin: 10px 0;
-    }
-    span {
-      border: 1px solid #000;
-      border-radius: 100%;
-      padding: 8px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-size: 15px;
-      transform: translate(50%, -50%);
-      background-color: #fff;
     }
   }
 }
