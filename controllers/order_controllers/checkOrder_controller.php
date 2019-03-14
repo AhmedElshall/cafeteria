@@ -9,7 +9,7 @@ class CheckController
 function getUserTotal($datefrom,$dateto)
 {
    $order=new Order();
-   $data=$order->getUserNameAndTotal($datefrom,$dateto);
+   $data=$order->getUsersAndTotal($datefrom,$dateto);
   
    return $data;
 
@@ -17,7 +17,7 @@ function getUserTotal($datefrom,$dateto)
 function getUserOrder()
 {
     $order=new Order();
-   $userOrders=$order->getUserOrders();
+   $userOrders=$order->getAllUserOrders();
    
    return $userOrders;
 }
