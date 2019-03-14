@@ -6,19 +6,24 @@
     .user {
       cursor: pointer;
       &:hover {
-        > td > i {
+        >td>i {
           color: #f00;
         }
       }
-      & + tr {
+      &+tr {
         display: none;
       }
-      // &__data {
-      //   cursor: pointer;
-      //   & + tr {
-      //     display: none;
-      //   }
-      // }
+    }
+    .user-data {
+      cursor: pointer;
+      &:hover {
+        >td>i {
+          color: #f00;
+        }
+      }
+      &+tr {
+        display: none;
+      }
     }
   }
 }
