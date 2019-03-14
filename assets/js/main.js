@@ -1,13 +1,11 @@
 //* ////////////////////////////////////////////////////////////////////////
 //! 02_user
-let addItem = $(".choosen-items .item-counter .add"),
-  subItem = $(".choosen-items .item-counter .sub"),
-  removeItem = $(".choosen-items .price .remove"),
-  priceArr = [];
+let priceArr = [];
 function getSum(total, num) {
   return total + num;
 }
 
+// select order
 $(".all-products .products .each-order").on("click", function() {
   let itemPrice = parseInt(
       $(this)
@@ -39,25 +37,23 @@ $(".all-products .products .each-order").on("click", function() {
   let totalPrice = $(".orders-panel .total-price span span");
   priceArr.push(itemPrice);
   let total = priceArr.reduce(getSum);
+  priceArr = [];
+  priceArr.push(total);
   totalPrice.text(total);
-  // .appendTo(choosenItems);
-  // alert(itemName);
+  $(".orders-panel .total-price")
+    .find("input")
+    .attr("value", total);
+  console.log(priceArr);
 });
 
+// add one item
 $(".choosen-items").on("click", ".item-counter .add", function() {
-  // addItem.on("click", function() {
   let itemPrice = parseInt(
     $(this)
       .parents(".item-info")
       .find(".itemPrice")
       .html()
   );
-  // let itemTotalPrice = parseInt(
-  //   $(this)
-  //     .parents(".item-info")
-  //     .find("input")
-  //     .attr("value")
-  // );
   let itemCounter = $(this)
     .parent()
     .find("span")
@@ -85,26 +81,23 @@ $(".choosen-items").on("click", ".item-counter .add", function() {
     .attr("value", newPrice);
   priceArr.push(itemPrice);
   let total = priceArr.reduce(getSum);
+  priceArr = [];
+  priceArr.push(total);
   totalPrice.text(total);
+  $(".orders-panel .total-price")
+    .find("input")
+    .attr("value", total);
   console.log(priceArr);
-  console.log(total);
 });
-// });
 
-$(".choosen-items").on("click", ".item-counter .sub", function(e) {
-  // subItem.on("click", function() {
+// subtract one item
+$(".choosen-items").on("click", ".item-counter .sub", function() {
   let itemPrice = parseInt(
     $(this)
       .parents(".item-info")
       .find(".itemPrice")
       .html()
   );
-  // let itemPrice = parseInt(
-  //   $(this)
-  //     .parents(".item-info")
-  //     .find("input")
-  //     .attr("value")
-  // );
   let itemCounter = $(this)
     .parent()
     .find("span")
@@ -116,37 +109,56 @@ $(".choosen-items").on("click", ".item-counter .sub", function(e) {
       .text()
   );
   let totalPrice = $(".orders-panel .total-price span span");
-  itemCounter--;
-  newPrice = newPrice - itemPrice;
   if (itemCounter <= 0) {
     newPrice = 0;
     itemCounter = 0;
+  } else {
+    itemCounter--;
+    newPrice = newPrice - itemPrice;
+    $(this)
+      .parent()
+      .find("span")
+      .text(itemCounter);
+    $(this)
+      .parents(".item-info")
+      .find(".price span span")
+      .text(newPrice);
+    $(this)
+      .parents(".item-info")
+      .find("input")
+      .attr("value", newPrice);
+    // priceArr.splice(priceArr.indexOf(itemPrice), 1);
+    let total = priceArr[0];
+    total = total - itemPrice;
+    // total = priceArr.reduce(getSum, 0);
+    priceArr = [];
+    priceArr.push(total);
+    totalPrice.text(total);
+    $(".orders-panel .total-price")
+      .find("input")
+      .attr("value", total);
+    console.log(priceArr);
   }
-  // if (newPrice <= 0) {
-  //   e.preventDefault();
-  // }
-  $(this)
-    .parent()
-    .find("span")
-    .text(itemCounter);
-  $(this)
-    .parents(".item-info")
-    .find(".price span span")
-    .text(newPrice);
-  $(this)
+});
+
+// remove selected item
+$(".choosen-items ").on("click", ".price .remove", function() {
+  let itemTotalPrice = $(this)
     .parents(".item-info")
     .find("input")
-    .attr("value", newPrice);
-  priceArr.splice(priceArr.indexOf(itemPrice), 1);
-  let total;
-  total = priceArr.reduce(getSum, 0);
-  totalPrice.text(total);
+    .val();
+  let totalPriceElem = $(".orders-panel .total-price span span");
+  let totalPrice = priceArr[0];
+  // let totalPrice = parseInt(totalPriceElem.html());
+  totalPrice = totalPrice - itemTotalPrice;
+  priceArr = [];
+  priceArr.push(totalPrice);
+  totalPriceElem.text(totalPrice);
+  // console.log(totalPrice);
   console.log(priceArr);
-  console.log(total);
-});
-// });
-
-$(".choosen-items ").on("click", ".price .remove", function() {
+  $(".orders-panel .total-price")
+    .find("input")
+    .attr("value", totalPrice);
   $(this)
     .parents("li")
     .remove();
