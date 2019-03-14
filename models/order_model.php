@@ -53,41 +53,41 @@ function selectLatestOrder ($user_id){
     $conn = null;
 }
 
-function checkUserOrders(){
+// get All orders Admin//
+function getAllUserOrders(){
     $conn=$this->connectDb();
-    $stmt=$conn->prepare("SELECT * from orders,products,users where orders.user_id=users.user_id and orders.product_id=products.product_id;");
+    $stmt=$conn->prepare("select  * from users,products ,orders , product_order where users.user_id=orders.user_id and product_order.product_id=products.product_id and product_order.order_id=orders.order_id ;");
     $stmt->execute();
-    $userChecks=$stmt->fetch();
-    return $userChecks;
+    $allUsers=$stmt->fetchAll();
+    return $allUsers;
     $conn=null;
 
 
 }
 
-function getUserNameAndTotal($datefrom,$dateto){
+// get User And Total //
+
+function getUsersAndTotal($startdate,$enddate){
  
      $conn=$this->connectDb();
-    $stmt=$conn->prepare("SELECT users.user_name, SUM(products.product_price) as total from orders,products,users where orders.user_id=users.user_id and orders.product_id=products.product_id and orders.order_date_from BETWEEN '".$datefrom."'AND '".$dateto."' GROUP by products.product_price ,users.user_name;");
+    $stmt=$conn->prepare("select SUM(orders.amount) as total , users.user_name from users,products ,orders , product_order where users.user_id=orders.user_id and product_order.product_id=products.product_id and product_order.order_id=orders.order_id and '".$startdate."'<=orders.order_date_from<='".$enddate."' GROUP BY users.user_name , orders.amount ;");
     $stmt->execute();
-    $userChecks=$stmt->fetch();
-    return $userChecks;
+    $allData=$stmt->fetchAll();
+    return $allData;
     $conn=null;
 
 }
 
-function getUserOrders(){
- 
-     $conn=$this->connectDb();
-    $stmt=$conn->prepare("SELECT users.user_name, products.product_price,products.product_name,orders.order_date_from from orders,products,users where orders.user_id=users.user_id and orders.product_id=products.product_id;");
-    $stmt->execute();
-    $userChecks=$stmt->fetch();
-    return $userChecks;
-    $conn=null;
+// OrderPage USer //
+function getUserOrder($id){
 
+    $conn=$this->connectDb();
+    $stmt=$conn->prepare("select  * from users,products ,orders , product_order where users.user_id=orders.user_id and product_order.product_id=products.product_id and product_order.order_id=orders.order_id and users.user_id='".$id."';");
+    $stmt->execute();
+    $userorders=$stmt->fetchAll();
+    return $userorders;
+    $conn=null;
 }
 
 }
 ?>
-
-<!-- SELECT products.product_name,products.product_image from products,product_order WHERE product_order.product_id=products.product_id
-AND product_order.order_id=(SELECT orders.order_id FROM orders WHERE orders.user_id=14 order BY orders.order_date_from DESC LIMIT 1); -->
