@@ -2,7 +2,11 @@
   padding: 40px 0;
 }
 
-.w-100, .orders-panel .items-notes textarea {
+.main-padding > div.container > h1 {
+  margin-bottom: 40px;
+}
+
+.w-100, .orders-panel .items-notes textarea, .checks input {
   width: 100%;
 }
 
@@ -70,6 +74,10 @@
 
 .orders-panel .choosen-items .item-info .price span {
   margin-right: 10px;
+}
+
+.orders-panel .choosen-items .item-info .price i {
+  font-size: 20px;
 }
 
 .orders-panel .items-notes textarea {
@@ -145,4 +153,16 @@
   -webkit-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
   background-color: #fff;
+}
+
+.checks .user-checks .user {
+  cursor: pointer;
+}
+
+.checks .user-checks .user:hover > td > i {
+  color: #f00;
+}
+
+.checks .user-checks .user + tr {
+  display: none;
 }
