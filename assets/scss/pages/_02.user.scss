@@ -19,7 +19,7 @@
     .item-info {
       display: flex;
       justify-content: space-between;
-      >div {
+      > div {
         align-self: center;
       }
       .item-counter {
@@ -37,6 +37,9 @@
       .price {
         span {
           margin-right: 10px;
+        }
+        i {
+          font-size: 20px;
         }
       }
     }
