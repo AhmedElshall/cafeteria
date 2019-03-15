@@ -260,6 +260,11 @@
           justify-content: space-evenly;
 }
 
+.modal .modal-body [class*="col-"] {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
 .checks .user-checks .user {
   cursor: pointer;
 }
