@@ -4,21 +4,21 @@
       border: 1px solid #ccc;
       td,
       th {
-        vertical-align: baseline;
+        vertical-align: unset;
         border: 1px solid #ccc;
       }
     }
     .order {
       cursor: pointer;
-      >td>i {
+      > td > i {
         float: right;
       }
       &:hover {
-        >td>i {
+        > td > i {
           color: #f00;
         }
       }
-      &+tr {
+      & + tr {
         display: none;
       }
     }
