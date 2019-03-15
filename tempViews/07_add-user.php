@@ -114,7 +114,7 @@
               </div>
             </div>
             <div class="form-group text-center">
-              <button class="btn btn-default" type="submit">Save</button>
+              <button class="btn btn-default" name="submit" type="submit">Save</button>
             </div>
           </form>
         </div>

@@ -60,6 +60,7 @@
                   type="password"
                   placeholder="enter your password"
                   name="password"
+                  id="password"
                 />
               </div>
             </div>
@@ -72,6 +73,7 @@
                   class="form-control"
                   type="password"
                   placeholder="confirm your password"
+                  id="confirm_password"
 
                 />
               </div>
@@ -118,7 +120,8 @@
               </div>
             </div>
             <div class="form-group text-center">
-              <button class="btn btn-default" type="submit">Save</button>
+            <input name="id" type="hidden" value="<?= $user['user_id']?>" />
+              <button class="btn btn-default" name="submit" type="submit">Save</button>
             </div>
           </form>
         </div>
@@ -128,6 +131,8 @@
     <script src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/popper.min.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/modules/07_add-user.js"></script>
+
 
      <script>
 if ( window.history.replaceState ) {

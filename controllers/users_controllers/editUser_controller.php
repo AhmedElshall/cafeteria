@@ -2,9 +2,9 @@
 
 require_once("../../models/user_model.php");
 
+class EditUser{
 
-class EditUser {
-    function edit (){
+    function edit(){
         $user= new User ();
 
         $name='';
@@ -23,12 +23,12 @@ class EditUser {
             $room = isset($_POST['room']) ?  $_POST['room'] :NULL;
             $ext = isset($_POST['ext']) ?  $_POST['ext'] :NULL;
             $image = isset($_POST['img']) ?  $_POST['img'] :NULL;
+            header("Location: listUser_controller.php");
+
         }
        $user->updateUser ($id, $name,$email,$password,$image,$room,$ext );
-       header("Location: listUser_controller.php");
     }
-    
-}
+    }
 
     $user= new EditUser();
     $user->edit();
