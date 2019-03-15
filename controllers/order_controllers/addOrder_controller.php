@@ -28,15 +28,7 @@ function getProductIDAndAmount()
    // var_dump($allProd);
    $order=new Order();
    if ( isset($_POST['submit']) ) {
-                
-      // $name = isset($_POST['name1']) ?  $_POST['name1'] :NULL;
-      // var_dump($_POST);
-      // $image = isset($postArray['img']) ?  $postArray['img'] :NULL;
-      // $price = isset($postArray['price']) ?  $postArray['price'] :NULL;
-      // $status = isset($postArray['status']) ?  $postArray['status'] :NULL;
-      // $categoryID = isset($postArray['category']) ?  $postArray['category'] :NULL;
       
-      // $product->insert($name,$image,$price,$status,$categoryID); 
       $length=count($_POST)-3;
      $keys=array_keys($_POST);
     

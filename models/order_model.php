@@ -98,6 +98,25 @@ function getPrice($product_name)
     $conn = null;
 
 }
+
+function selectOrder($id,$dateFrom,$dateTo){
+    $conn=  $this->connectDb();
+    
+    $stmt= $conn->prepare("select * from products,orders,product_order where orders.order_id=product_order.order_id and products.product_id =product_order.product_id and '".$dateFrom."' <= orders.order_date_from and orders.order_date_from <=  '".$dateTo."' and orders.user_id='".$id."'
+    ;");
+    $stmt->execute();
+    $order= $stmt->fetchAll();
+    return $order;
+}
+
+function selectALLOrders(){
+    $conn=  $this->connectDb();
+    
+    $stmt= $conn->prepare("select * from users, products,orders,product_order where orders.order_id=product_order.order_id and products.product_id =product_order.product_id and users.user_id = orders.user_id ;");
+    $stmt->execute();
+    $order= $stmt->fetchAll();
+    return $order;
+}
 }
 ?>
 

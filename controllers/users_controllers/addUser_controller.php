@@ -24,11 +24,11 @@ class AddUser{
            
             if (isset($FILES1)) {
                 
-                    $file =$FILES1['img1'];
+                    // $file =$FILES1['img1'];
                     $allowedExts = array('jpg', 'png');
                     $uploadsDirecotry = "../../resources/uploads/";
                     $maxSize = 4000000;
-                    var_dump($_FILES);
+                    // var_dump($_FILES);
                  
                 
             }
@@ -40,9 +40,9 @@ class AddUser{
             $image = isset($_POST['img']) ?  $_POST['img'] :NULL;
            
             $check = NULL;
-            var_dump($name);
+            // var_dump($name);
             //$this->userService->
-            $user->insert($name,$email,$password,$image,$room,$ext,$check,$file, $allowedExts, $uploadsDirecotry, $maxSize); 
+            $user->insert($name,$email,$password,$image,$room,$ext,$check); 
            # $_SESSION['form_message'] = "Data Updated Successfully";
         }  
 

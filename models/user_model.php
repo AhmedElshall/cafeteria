@@ -62,12 +62,12 @@ class User
 
     ///////////////////////////////////////
 
-     function insert($name,$email,$password,$image,$room,$ext,$check,$file,$allowedExts,$maxsize, $uploadsDir){
+     function insert($name,$email,$password,$image,$room,$ext,$check){
        
             $conn= $this->connectDb();
-           $files=$this->upload($file, $allowedExts,$uploadsDir, $maxsize);
-           var_dump($files[0]);
-           $im=$files[0];
+        //    $files=$this->upload($file, $allowedExts,$uploadsDir, $maxsize);
+        // //    var_dump($files[0]);
+        //    $im=$files[0];
             // prepare sql and bind parameters
             $stmt = $conn->prepare("INSERT INTO users ( user_name , user_email, user_password,
             user_image,user_room,user_ext,user_check) 
