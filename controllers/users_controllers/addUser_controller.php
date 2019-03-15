@@ -1,12 +1,13 @@
 <?php
 session_start();
 ob_start();
-    include("../../models/user_model.php");
+    require_once("../../models/user_model.php");
+
     
 class AddUser{
     
 
-     function index($postArray,$FILES1){
+     function index($FILES1){
 
         $user= new User ();
 
@@ -19,7 +20,7 @@ class AddUser{
         $image='';
         $check='';
         
-        if ( isset($postArray['submit']) ) {
+        if ( isset($_POST['submit']) ) {
            
             if (isset($FILES1)) {
                 
@@ -31,12 +32,12 @@ class AddUser{
                  
                 
             }
-            $name = isset($postArray['name']) ?  $postArray['name'] :NULL;
-            $email = isset($postArray['email']) ?  $postArray['email'] :NULL;
-            $password = isset($postArray['password']) ?  $postArray['password'] :NULL;
-            $room = isset($postArray['room']) ?  $postArray['room'] :NULL;
-            $ext = isset($postArray['ext']) ?  $postArray['ext'] :NULL;
-            $image = isset($postArray['img']) ?  $postArray['img'] :NULL;
+            $name = isset($_POST['name']) ?  $_POST['name'] :NULL;
+            $email = isset($_POST['email']) ?  $_POST['email'] :NULL;
+            $password = isset($_POST['password']) ?  $_POST['password'] :NULL;
+            $room = isset($_POST['room']) ?  $_POST['room'] :NULL;
+            $ext = isset($_POST['ext']) ?  $_POST['ext'] :NULL;
+            $image = isset($_POST['img']) ?  $_POST['img'] :NULL;
            
             $check = NULL;
             var_dump($name);
@@ -51,8 +52,9 @@ class AddUser{
     }
     $users= new AddUser();
    // var_dump($_FILES);
-    $users->index($_POST,$_FILES);
-    include ("../../views/07_add-user.php");
+    // $userEdit= new User();
+    // $user= $userEdit->selectUser($id);
+    $users->index($_FILES);
+    include ("../../tempViews/07_add-user.php");
 
-   
 ?>

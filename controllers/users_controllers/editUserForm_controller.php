@@ -3,6 +3,6 @@
     $id = $_GET['id'];
     $u= new User ();
     $user= $u->selectUser($id);
-    include ("../../views/helperViews/editUser.php")
+    include ("../../tempViews/08_edit-user.php")
 
 ?>
