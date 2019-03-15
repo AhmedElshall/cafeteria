@@ -48,7 +48,8 @@
 }
 
 .user-checks .each-order,
-.user-orders .each-order {
+.user-orders .each-order,
+.admin-orders .each-order {
   margin-top: 30px;
 }
 
@@ -281,4 +282,26 @@
 
 .checks .user-checks .user-data + tr {
   display: none;
+}
+
+.admin-orders .order {
+  cursor: pointer;
+}
+
+.admin-orders .order:hover > td > i {
+  color: #f00;
+}
+
+.admin-orders .order + tr {
+  display: none;
+}
+
+.admin-orders .order-total-price {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  text-align: right;
+}
+
+.admin-orders .order-total-price p {
+  font-size: 25px;
 }
