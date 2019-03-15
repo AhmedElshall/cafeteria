@@ -1,6 +1,6 @@
 .main-padding {
   padding: 40px 0;
-  > div.container > h1 {
+  >div.container>h1 {
     margin-bottom: 40px;
   }
 }
@@ -47,7 +47,8 @@
     }
   }
   .user-checks &,
-  .user-orders & {
+  .user-orders &,
+  .admin-orders & {
     margin-top: 30px;
   }
 }
