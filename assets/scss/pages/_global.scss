@@ -17,6 +17,13 @@
   display: none;
 }
 
+.add-product,
+.add-user {
+  [class*="col-"] {
+    align-self: baseline;
+  }
+}
+
 // .all-products // .user-checks .user+tr {
 .each-order {
   position: relative;
