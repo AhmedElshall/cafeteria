@@ -25,7 +25,7 @@ class AddUser{
                 
                     $file =$FILES1['img1'];
                     $allowedExts = array('jpg', 'png');
-                    $uploadsDirecotry = "C:/xampp/htdocs/cafeteria/resources/uploads/";
+                    $uploadsDirecotry = "../../resources/uploads/";
                     $maxSize = 4000000;
                     var_dump($_FILES);
                  
