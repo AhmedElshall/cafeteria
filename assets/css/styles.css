@@ -224,6 +224,35 @@
           justify-content: space-between;
 }
 
+.admin-all-users .add-user {
+  text-align: right;
+}
+
+.admin-all-users .users-panel {
+  margin: 20px 0;
+}
+
+.admin-all-users .users-panel table {
+  text-align: center;
+}
+
+.admin-all-users .users-panel table .each-user td {
+  vertical-align: unset;
+}
+
+.admin-all-users .users-panel table .each-user td:last-child {
+  width: 300px;
+}
+
+.admin-all-users .users-panel table .each-user td:last-child > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 .checks .user-checks .user {
   cursor: pointer;
 }
