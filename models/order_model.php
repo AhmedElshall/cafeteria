@@ -54,13 +54,30 @@ function selectLatestOrder ($user_id){
 }
 
 // get All orders Admin//
-function getAllUserOrders(){
+function getAllUserOrders($startdate,$enddate){
     $conn=$this->connectDb();
-    $stmt=$conn->prepare("select  * from users,products ,orders , product_order where users.user_id=orders.user_id and product_order.product_id=products.product_id and product_order.order_id=orders.order_id ;");
+    
+    $stmt=$conn->prepare("select  * from users,products ,orders , product_order where users.user_id=orders.user_id and product_order.product_id=products.product_id and product_order.order_id=orders.order_id and '".$startdate."'<=orders.order_date_from<='".$enddate."' ;");
+    echo $stmt;
     $stmt->execute();
     $allUsers=$stmt->fetchAll();
     return $allUsers;
     $conn=null;
+
+
+}
+
+// get users that have orders
+
+function getUsers(){
+     $conn=$this->connectDb();
+    $stmt=$conn->prepare("select DISTINCT users.user_id,users.user_name FROM users,orders WHERE users.user_id=orders.user_id ;");
+    $stmt->execute();
+    $users=$stmt->fetchAll();
+    return $users;
+    $conn=null;
+
+
 
 
 }
@@ -79,10 +96,10 @@ function getUsersAndTotal($startdate,$enddate){
 }
 
 // OrderPage USer //
-function getUserOrder($id){
+function getUserOrder($id,$startdate,$enddate){
 
     $conn=$this->connectDb();
-    $stmt=$conn->prepare("select  * from users,products ,orders , product_order where users.user_id=orders.user_id and product_order.product_id=products.product_id and product_order.order_id=orders.order_id and users.user_id='".$id."';");
+    $stmt=$conn->prepare("select  * from users,products ,orders , product_order where users.user_id=orders.user_id and product_order.product_id=products.product_id and product_order.order_id=orders.order_id and '".$startdate."'<=orders.order_date_from<='".$enddate."' and users.user_id='".$id."';");
     $stmt->execute();
     $userorders=$stmt->fetchAll();
     return $userorders;
