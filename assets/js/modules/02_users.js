@@ -17,7 +17,7 @@ $(".all-products .products .each-order").on("click", function() {
       .attr("name");
 
   let choosenItems = $(".choosen-items ul"),
-    newItem = `<li> 
+    newItem = `<li class="hidden"> 
                 <div class='item-info'> 
                   <h5> ${itemName} </h5> 
                   <div class='item-counter'>
@@ -33,7 +33,10 @@ $(".all-products .products .each-order").on("click", function() {
                   <span class="itemPrice hidden">${itemPrice}</span>
                 </div>
               </li>`;
-  choosenItems.append(newItem);
+  choosenItems
+    .append(newItem)
+    .find("li.hidden")
+    .fadeIn(400);
   let totalPrice = $(".orders-panel .total-price span span");
   priceArr.push(itemPrice);
   let total = priceArr.reduce(getSum);

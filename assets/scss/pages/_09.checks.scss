@@ -4,14 +4,20 @@
   }
   .user-checks {
     .user {
-      cursor: pointer; // transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      i {
+        transition: all 0.2s ease-in-out;
+      }
       &:hover {
+        @extend .custom-shadow;
         >td>i {
+          transition: all 0.2s ease-in-out;
           color: #f00;
         }
       }
       &+tr {
-        display: none; // transition: all 0.5s ease-in-out;
+        display: none;
       }
     }
     .user-data {

@@ -10,10 +10,15 @@
     }
     .order {
       cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      i {
+        transition: all 0.2s ease-in-out;
+      }
       > td > i {
         float: right;
       }
       &:hover {
+        @extend .custom-shadow;
         > td > i {
           color: #f00;
         }

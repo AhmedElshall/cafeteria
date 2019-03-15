@@ -5,6 +5,7 @@ console.log(userData);
 userRow.each(function() {
   $(this).on("click", ".user", function() {
     $(this)
+      .toggleClass("custom-shadow")
       .next()
       .fadeToggle("700");
     $(this)
@@ -16,6 +17,7 @@ userRow.each(function() {
 userData.each(function() {
   $(this).on("click", ".user-data", function() {
     $(this)
+      .toggleClass("custom-shadow")
       .next()
       .fadeToggle("700");
     $(this)
