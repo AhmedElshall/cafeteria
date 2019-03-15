@@ -36,12 +36,13 @@
   top: 0;
   right: 0;
   font-size: 15px;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
+  -webkit-transform: translate(20%, -50%);
+          transform: translate(20%, -50%);
   background-color: #fff;
 }
 
-.user-checks .each-order {
+.user-checks .each-order,
+.user-orders .each-order {
   margin-top: 30px;
 }
 
@@ -157,6 +158,41 @@
 .all-products .products .each-order:hover {
   -webkit-box-shadow: 0 0 10px 7px #00000045;
           box-shadow: 0 0 10px 7px #00000045;
+}
+
+.my-orders .user-orders table {
+  border: 1px solid #ccc;
+}
+
+.my-orders .user-orders table td,
+.my-orders .user-orders table th {
+  vertical-align: baseline;
+  border: 1px solid #ccc;
+}
+
+.my-orders .user-orders .order {
+  cursor: pointer;
+}
+
+.my-orders .user-orders .order > td > i {
+  float: right;
+}
+
+.my-orders .user-orders .order:hover > td > i {
+  color: #f00;
+}
+
+.my-orders .user-orders .order + tr {
+  display: none;
+}
+
+.my-orders .user-orders .total-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .checks .user-checks .user {

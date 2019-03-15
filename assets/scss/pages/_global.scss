@@ -35,11 +35,12 @@
       top: 0;
       right: 0;
       font-size: 15px;
-      transform: translate(50%, -50%);
+      transform: translate(20%, -50%);
       background-color: #fff;
     }
   }
-  .user-checks & {
+  .user-checks &,
+  .user-orders & {
     margin-top: 30px;
   }
 }
