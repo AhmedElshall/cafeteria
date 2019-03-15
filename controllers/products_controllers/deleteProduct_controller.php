@@ -2,7 +2,7 @@
     require_once("../../models/products_model.php");
     $product= new Product ();
 
-    $id=$_POST['id'];
+    $id=$_GET['id'];
     $product->delete($id);
     header("Location: listProduct_controller.php")
 ?>
