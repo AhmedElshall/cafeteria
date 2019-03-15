@@ -10,6 +10,16 @@ header {
   z-index: 9;
 }
 
+table {
+  border: 1px solid #ccc;
+}
+
+table td,
+table th {
+  vertical-align: unset;
+  border: 1px solid #ccc;
+}
+
 .custom-shadow, .my-orders .user-orders .order:hover, .admin-all-products .products-panel table .each-product:hover, .admin-all-users .users-panel table .each-user:hover, .checks .user-checks .user:hover, .admin-orders .order:hover {
   -webkit-box-shadow: 0 0 8px 3px #ccc;
           box-shadow: 0 0 8px 3px #ccc;
@@ -17,6 +27,9 @@ header {
 
 .main-padding {
   padding: 40px 0;
+}
+
+.main-padding:first-of-type {
   margin-top: 66px;
 }
 
