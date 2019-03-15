@@ -1,0 +1,23 @@
+.admin-all-products {
+  .add-product {
+    text-align: right;
+  }
+  .products-panel {
+    margin: 20px 0;
+    table {
+      text-align: center;
+      .each-product {
+        td {
+          vertical-align: unset;
+          &:last-child {
+            width: 300px;
+            > div {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -166,7 +166,7 @@
 
 .my-orders .user-orders table td,
 .my-orders .user-orders table th {
-  vertical-align: baseline;
+  vertical-align: unset;
   border: 1px solid #ccc;
 }
 
@@ -193,6 +193,35 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+.admin-all-products .add-product {
+  text-align: right;
+}
+
+.admin-all-products .products-panel {
+  margin: 20px 0;
+}
+
+.admin-all-products .products-panel table {
+  text-align: center;
+}
+
+.admin-all-products .products-panel table .each-product td {
+  vertical-align: unset;
+}
+
+.admin-all-products .products-panel table .each-product td:last-child {
+  width: 300px;
+}
+
+.admin-all-products .products-panel table .each-product td:last-child > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .checks .user-checks .user {
