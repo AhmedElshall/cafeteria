@@ -5,7 +5,7 @@
     $allCategories= $category->selectAll();
     
     $id = $_GET['id'];
-    $av=$_GET['cat']
+    $av=$_GET['cat'];
     $p= new Product ();
     $product= $p->selectProduct($id);
     include ("../../views/helperViews/editProduct.php");
