@@ -18,6 +18,12 @@
   display: none;
 }
 
+.add-product [class*="col-"],
+.add-user [class*="col-"] {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+}
+
 .each-order {
   position: relative;
   text-align: center;
