@@ -1,7 +1,8 @@
 <?php
 session_start();
 ob_start();
-    include("../../models/user_model.php");
+    require_once("../../models/user_model.php");
+
     
 class AddUser{
     
@@ -51,8 +52,9 @@ class AddUser{
     }
     $users= new AddUser();
    // var_dump($_FILES);
+    // $userEdit= new User();
+    // $user= $userEdit->selectUser($id);
     $users->index($_POST,$_FILES);
-    include ("../../views/07_add-user.php");
+    include ("../../tempViews/07_add-user.php");
 
-   
 ?>
