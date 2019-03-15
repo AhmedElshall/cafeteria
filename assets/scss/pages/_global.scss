@@ -10,13 +10,24 @@ header {
   z-index: 9;
 }
 
+table {
+  border: 1px solid #ccc;
+  td,
+  th {
+    vertical-align: unset;
+    border: 1px solid #ccc;
+  }
+}
+
 .custom-shadow {
   box-shadow: 0 0 8px 3px #ccc;
 }
 
 .main-padding {
   padding: 40px 0;
-  margin-top: 66px;
+  &:first-of-type {
+    margin-top: 66px;
+  }
   > div.container > h1 {
     margin-bottom: 40px;
   }
