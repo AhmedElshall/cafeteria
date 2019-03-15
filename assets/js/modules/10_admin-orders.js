@@ -3,6 +3,7 @@ let orderRow = $(".admin-orders table");
 orderRow.each(function() {
   $(this).on("click", ".order", function() {
     $(this)
+      .toggleClass("custom-shadow")
       .next()
       .fadeToggle("700");
     $(this)
