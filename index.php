@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="form-group text-center">
-            <button class="btn btn-default" type="submit">Login</button>
+            <button class="btn btn-success" type="submit">Login</button>
           </div>
         </form>
         <div class="forget-password text-center">
